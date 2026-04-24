@@ -15,9 +15,8 @@ all: zgrab2
 # Test currently only runs on the modules folder because some of the 
 # third-party libraries in lib (e.g. http) are failing.
 test:
-	go test -v -failfast .
-	cd lib/output/test && go test -v -failfast ./...
-	cd modules && go test -v -failfast ./...
+	go clean -testcache
+	go test -v ./...
 
 lint:
 	gofmt -s -w $(shell find . -type f -name '*.go'| grep -v "/.template/")

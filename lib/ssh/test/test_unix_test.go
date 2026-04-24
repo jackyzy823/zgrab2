@@ -143,6 +143,11 @@ func clientConfig() *ssh.ClientConfig {
 			ssh.KeyAlgoRSA, ssh.KeyAlgoDSA,
 			ssh.KeyAlgoED25519,
 		},
+		Config: ssh.Config{
+			GexMinBits:       1024,
+			GexMaxBits:       8192,
+			GexPreferredBits: 2048,
+		},
 	}
 	return config
 }
